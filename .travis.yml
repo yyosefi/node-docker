@@ -17,7 +17,7 @@ jobs:
       script: 
         - docker build -t node-docker/node-docker-example .
     - stage: deploy
-      script: skip
+      #script: skip
 
       deploy:
         provider: elasticbeanstalk
