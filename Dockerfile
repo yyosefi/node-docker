@@ -5,7 +5,7 @@ COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install --production
 COPY . .
 CMD [ "node", "server.js" ]
-
+EXPOSE 8000
 
 
 # syntax=docker/dockerfile:1
