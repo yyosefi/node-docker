@@ -9,5 +9,17 @@ services:
   - docker
 
 
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key:
+    secure: "$SECRETACCESSKEY"
+  region: "us-west-2"  
+  app: "node-docker"
+  env: "Nodedocker-env"
+  bucket_name: "elasticbeanstalk-us-west-2-719156614080"
+  on:
+    branch: master
+
 after_deploy:
   - echo "done deploying!"
