@@ -1,24 +1,35 @@
 language: node_js
 
 node_js:
-  - "14"
+  - "12"
 
 sudo: required
 
 services:
   - docker
 
+jobs:
+  include:
+    - stage: test
+      script:
+        - npm test
+    - stage: docker-build
+      script: 
+        - docker build -t node-docker/node-docker-example .
+    - stage: deploy
+      script: skip
 
-deploy:
-  provider: elasticbeanstalk
-  access_key_id: $ACCESSKEYID
-  secret_access_key: "$SECRETACCESSKEY"
-  region: "us-west-2"  
-  app: "node-docker"
-  env: "Nodedocker-env"
-  bucket_name: "elasticbeanstalk-us-west-2-719156614080"
-  on:
-    branch: master
+      deploy:
+        provider: elasticbeanstalk
+        access_key_id: $ACCESSKEYID
+        secret_access_key: "$SECRETACCESSKEY"
+        region: "us-west-2"  
+        app: "node-docker"
+        env: "Nodedocker-env"
+        bucket_name: "elasticbeanstalk-us-west-2-719156614080"
+        bucket_path: node-docker-example
+        on:
+          branch: master
 
 after_deploy:
   - echo "done deploying!"
