@@ -10,4 +10,4 @@ services:
 
 
 after_deploy:
-  - echo "done deploying"
+  - echo "done deploying!"
