@@ -41,10 +41,9 @@ AWS_SECRET_ACCESS_KEY -> your secret key
 DOCKER_ID -> your Docker hub username
 DOCKER_PASS -> password for your Docker hub
 
-Edit the .travis.yml file in the project root folder and change the region, app, env, bucket_name and bucket_path with your relevant details as created in step 2.
+8. Edit the .travis.yml file in the project root folder and change the region, app, env, bucket_name and bucket_path with your relevant details as created in step 2.
 
-change the docker build and docker push with your Docker hub details in step 3.
+9. Change the docker build and docker push with your Docker hub details in step 3.
 
-Edit Dockerrun.aws.json with your DockerHub details.
+10. Edit Dockerrun.aws.json with your DockerHub details.
 
-Commit the changes and push to Github. when everything is ok, you should see your pipline run and node-docker deployed to your Elastic Beantstalk environment.
