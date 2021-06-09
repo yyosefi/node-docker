@@ -1,6 +1,11 @@
-install: skip
+language: node_js
 
-script: skip
+node_js:
+  - "12"
+
+#install: skip
+
+#script: skip
 
 sudo: required
 
