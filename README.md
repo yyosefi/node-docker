@@ -17,8 +17,8 @@ with the following added CI Flow:
 
 When a version is pushed to GitHub -> Travis-CI runs:
 - Test
-- Package as a Docker container and push to DockerHub,
-- AWS pulls package from DockerHub and deploys to a Elastic Beanstalk environment.
+- Package as a Docker Image and push to Elastic Beanstalk
+
 
 Below are the instructions for running the whole process:
 
@@ -26,24 +26,14 @@ Below are the instructions for running the whole process:
 
 2. Use this guide to create an Elastic Beanstalk Application and Docker enabled environment to deploy the project into: https://medium.com/@andrew.bestbier/how-to-create-an-elastic-beanstalk-application-8431e7960bad.
 
+3. Commit project files and Push to GitHub
 
-3. Use this guide to create a Docker Hub repository: https://medium.com/@andrew.bestbier/how-to-create-a-docker-hub-repository-f07d1e0ddf5e
+4. Sign with your GitHub account into https://travis-ci.com/
 
-4. Commit project files and Push to GitHub
+5. Add a new project and choose 'settings' next to the node-docker repository.
 
-5. Sign with your GitHub account into https://travis-ci.com/
-
-6. Add a new project and choose 'settings' next to the node-docker repository.
-
-7. Add the following environment variables:
+6. Add the following environment variables:
 AWS_ACCESS_KEY_ID -> your access ID
 AWS_SECRET_ACCESS_KEY -> your secret key
-DOCKER_ID -> your Docker hub username
-DOCKER_PASS -> password for your Docker hub
 
 8. Edit the .travis.yml file in the project root folder and change the region, app, env, bucket_name and bucket_path with your relevant details as created in step 2.
-
-9. Change the docker build and docker push with your Docker hub details in step 3.
-
-10. Edit Dockerrun.aws.json with your DockerHub details.
-
